@@ -1,0 +1,43 @@
+{
+  "name": "json-fs-converter",
+  "version": "1.0.0",
+  "description": "This module allows to convert json structures in file system, by taking resources from different resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "riteway tests/unit/**-test.js",
+    "integration" : "tape tests/integration.js | tap-color"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giper45/json-fs-converter.git"
+  },
+  "keywords": [
+    "json",
+    "filesystem",
+    "filesystem-converter",
+    "json2fs",
+    "json-to-filesystem"
+  ],
+  "author": "gx1",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giper45/json-fs-converter/issues"
+  },
+  "homepage": "https://github.com/giper45/json-fs-converter#readme",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "mock-fs": "^4.10.1",
+    "prettier": "^1.18.2",
+    "riteway": "^6.0.3",
+    "tape": "^4.11.0"
+  },
+  "dependencies": {
+    "download-file": "^0.1.5",
+    "http-errors": "^1.7.3",
+    "underscore": "^1.9.1",
+    "valid-url": "^1.0.9"
+  }
+}
