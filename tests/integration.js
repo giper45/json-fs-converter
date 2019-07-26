@@ -6,8 +6,41 @@ const fs = require('fs');
 const mock = require('mock-fs');
 const complex = require('./json/complex.json')
 const doubleFile = require('./json/simple.json');
+const _ = require('underscore');
 
 const crypto = require('crypto')
+const rootPath = path.join("/fakeTmp", "dsp")
+
+const arrayFiles = [
+{
+  path: path.join(rootPath, "CHANGELOG.md"),
+  md5: "c61fddb8cc0c61298481e25c53bdf73b"
+},
+{
+  path: path.join(rootPath, "License.md"),
+  md5: "a23edc1ee920afaf17d00b438ea8ac71"
+},
+{
+  path: path.join(rootPath, "Readme.md"),
+  md5: "ad971c2a37865018024e06b173170b5c"
+},
+{
+  path: path.join(rootPath, "config", "backup_configuser.json"),
+  md5: "569ab1b2802e1643796f6cc9efb1e7d2"
+},
+{
+  path: path.join(rootPath, "config", "local.config.json"),
+  md5: "fac1059dd91bc6fc03e2a9072b9c3795"
+},
+{
+  path: path.join(rootPath, "config", "test_user.json"),
+  md5: "e37ad27cef3261bff2fc31d84d65e263"
+},
+{
+  path: path.join(rootPath, "config", "tpl_local.config.json"),
+  md5: "5e21893f388498eef8a857c3a8bfa8e6"
+}
+]
 
 function checksum(str, algorithm, encoding) {
   return crypto
@@ -79,12 +112,20 @@ tape('create 2 files and a directory with a file inside dir with http driver', (
 });
 
 tape('create complex directory', (t) => {
-	t.plan(2);
+	t.plan(16);
 	const mm = mainModule(JSON.stringify(complex));
 	mm.run((err) => {
 		t.equal(err, null);
-		const exists = fs.existsSync(path.join(fakeTmp, 'dsp'));
+		let exists = fs.existsSync(path.join(fakeTmp, 'dsp'));
+    let fileContent = "";
 		t.equal(exists, true);
+    _.each(arrayFiles, (f) => {
+      exists = fs.existsSync(f.path);
+      t.equal(exists, true);
+      fileContent = fs.readFileSync(f.path);
+      t.equal(checksum(fileContent), f.md5);
+
+    })
 	});
 });
 

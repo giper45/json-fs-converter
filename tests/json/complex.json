@@ -1,6 +1,6 @@
 {"name":"dsp","root": "/fakeTmp","structure":[
-    {"type":"http","name":"CHANGELOG.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/Changelog.md"},
-    {"type":"http","name":"License.md", "url": "https://github.com/giper45/DockerSecurityPlayground/blob/master/License.md"},
+    {"type":"http","name":"CHANGELOG.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/CHANGELOG.md"},
+    {"type":"http","name":"License.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/License.md"},
     {"type":"http","name":"Readme.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/Readme.md"},
     {"type":"directory","name":"app","contents":[
       {"type":"directory","name":"data","contents":[
