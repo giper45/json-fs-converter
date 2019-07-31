@@ -64,9 +64,6 @@ mm.run((err) => {
 5. Submit a pull request, we'll check 
 ```
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
