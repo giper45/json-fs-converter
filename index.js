@@ -1,1 +1,2 @@
-module.exports = api;
+const main = require('./lib/main.js')
+module.exports = main;
