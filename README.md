@@ -70,7 +70,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Gaetano Perrone** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Gaetano Perrone** - *Initial work* - [giper45](https://github.com/giper45)
 
 See also the list of [contributors](https://github.com/giper45/json-fs-converter/graphs/contributors) who participated in this project.
 
