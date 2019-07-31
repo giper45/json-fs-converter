@@ -5,14 +5,6 @@ This module allows to convert json structures in file system, by taking resource
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ### Installing
 
 ```
@@ -33,25 +25,46 @@ Integration test:
 npm run integration  
 ``` 
 
-
-
-
-
 ### Usage
 
-Explain what these tests test and why
+To use the library: 
+```   
+var jsonConverter = require('json-fs-converter')
+const path = require('path');
+const fs = require('fs');
+const fakeTmp = '/fakeTmp';
+const mock = require('mock-fs')
+const singleFile = '{"root" : "/fakeTmp", "name" : "single-test", "structure" : [{"type": "http", "name" : "test.txt", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/Readme.md"}]}'
+
+mock({
+  '/fakeTmp' : {}
+})
+
+const mm = jsonConverter(singleFile);
+mm.run((err) => {
+  const filename = path.join(fakeTmp, 'single-test', "test.txt");
+  let exists = fs.existsSync(filename);
+  console.log("Exists? ")
+  console.log(exists)
+  console.log("File content:");
+  const fileContent = fs.readFileSync(filename);
+  console.log(fileContent)
+  console.log(fileContent.toString())
+  mock.restore();
+})
 
 ```
+
  
 
 ## Contributing
-
+```
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`  
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request, we'll check 
-
+```
 
 ## Versioning
 
