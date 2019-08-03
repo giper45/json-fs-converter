@@ -1,10 +1,10 @@
 {"root" : "/fakeTmp", 
   "name" : "double-test", 
   "structure" : [
-    { "type": "http", "name" : "License.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/License.md"}, 
-    {"type": "http", "name" : "Readme.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/Readme.md" },
+    { "type": "http", "name" : "License.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/License.md"}, 
+    {"type": "http", "name" : "Readme.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/Readme.md" },
     {"type": "directory", "name" : "internal", "contents": [
-      {"type": "http", "name" : "index.js", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/index.js"} 
+      {"type": "http", "name" : "index.js", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/index.js"} 
     ]
     }
   ]

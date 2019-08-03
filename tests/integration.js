@@ -14,7 +14,7 @@ const rootPath = path.join("/fakeTmp", "dsp")
 const arrayFiles = [
 {
   path: path.join(rootPath, "CHANGELOG.md"),
-  md5: "c61fddb8cc0c61298481e25c53bdf73b"
+  md5: "29dac8a4e648a1bd707448d5af195239"
 },
 {
   path: path.join(rootPath, "License.md"),
@@ -56,7 +56,7 @@ mock({
 
 const md5Readme = "ad971c2a37865018024e06b173170b5c";
 const md5License = "a23edc1ee920afaf17d00b438ea8ac71";
-const md5Index = "5fb3fef6092c3fbc62162e9dbfc29d8d";
+const md5Index = "8e6cf2f8c5df4df2f0147fe2b8067e28";
 
 tape('create directory', (t) => {
 	t.plan(2);
@@ -111,6 +111,7 @@ tape('create 2 files and a directory with a file inside dir with http driver', (
 	})
 });
 
+
 tape('create complex directory', (t) => {
 	t.plan(16);
 	const mm = mainModule(JSON.stringify(complex));
@@ -121,12 +122,38 @@ tape('create complex directory', (t) => {
 		t.equal(exists, true);
     _.each(arrayFiles, (f) => {
       exists = fs.existsSync(f.path);
+      console.log(f.path);
       t.equal(exists, true);
       fileContent = fs.readFileSync(f.path);
-      t.equal(checksum(fileContent), f.md5);
+      t.equal(f.md5, checksum(fileContent))
 
     })
 	});
+})
+
+tape('create 2 files and a directory with a file inside dir with fs driver', (t) => {
+	t.plan(6);
+    const testmd = "be5e16c3d540fc30371e3af977e2a62e";
+    const imagemd = "bee1c0f53d40e56f04a84dda46bbfbdb";
+	 const fsFile = '{"root" : "/fakeTmp", "name" : "testfs", "structure" : [{ "type": "fs", "name" : "test.txt", "filepath": "/fakeTmp/test.txt"}, {"type": "fs", "name" : "testimage.png", "filepath": "/fakeTmp/test2.txt" }]}'
+  fs.writeFileSync(path.join("/fakeTmp", "test.txt"),  "thisisatest")
+  fs.writeFileSync(path.join("/fakeTmp", "test2.txt"),  "anothertest")
+	const mm = mainModule(fsFile);
+	mm.run((err) => {
+		t.equal(err, null);
+		let exists = fs.existsSync(path.join(fakeTmp, 'testfs'));
+		t.equal(exists, true);
+		const testFile = path.join(fakeTmp, 'testfs', "test.txt")
+		const imageFile = path.join(fakeTmp, 'testfs', "testimage.png")
+		exists = fs.existsSync(testFile);
+		t.equal(exists, true);
+		const testContent = fs.readFileSync(testFile);
+		t.equal(testmd, checksum(testFile, "md5"));
+		exists = fs.existsSync(imageFile);
+		t.equal(exists, true);
+		const imageContent = fs.readFileSync(imageFile);
+		t.equal(imagemd, checksum(imageContent));
+	})
 });
 
 tape.onFinish(() => {

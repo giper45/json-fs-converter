@@ -1,7 +1,7 @@
 {"name":"dsp","root": "/fakeTmp","structure":[
-    {"type":"http","name":"CHANGELOG.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/CHANGELOG.md"},
-    {"type":"http","name":"License.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/License.md"},
-    {"type":"http","name":"Readme.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/Readme.md"},
+  {"type":"http","name":"CHANGELOG.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/CHANGELOG.md"},
+    {"type":"http","name":"License.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/License.md"},
+    {"type":"http","name":"Readme.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/Readme.md"},
     {"type":"directory","name":"app","contents":[
       {"type":"directory","name":"data","contents":[
       ]},
@@ -11,16 +11,16 @@
       ]}
     ]},
     {"type":"directory","name":"config","contents":[
-      {"type":"http","name":"backup_configuser.json", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/config/backup_configuser.json"},
+      {"type":"http","name":"backup_configuser.json", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/config/backup_configuser.json"},
       {"type":"directory","name":"examples","contents":[
       ]},
-      {"type":"http","name":"local.config.json", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/config/local.config.json"},
-      {"type":"http","name":"test_user.json", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/config/test_user.json"},
-      {"type":"http","name":"tpl_local.config.json", "url":  "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/config/tpl_local.config.json"}
+      {"type":"http","name":"local.config.json", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/config/local.config.json"},
+      {"type":"http","name":"test_user.json", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/config/test_user.json"},
+      {"type":"http","name":"tpl_local.config.json", "url":  "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/config/tpl_local.config.json"}
     ]},
     {"type":"directory","name":"docker_utils","contents":[
-      {"type":"http","name":"bkp.sh", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/docker_utils/bkp.sh"},
-      {"type":"http","name":"rmiuntagged.sh", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/docker_utils/rmiuntagged.sh"}
+      {"type":"http","name":"bkp.sh", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/docker_utils/bkp.sh"},
+      {"type":"http","name":"rmiuntagged.sh", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/docker_utils/rmiuntagged.sh"}
     ]},
-    {"type":"http","name":"index.js", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/index.js"}
+    {"type":"http","name":"index.js", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/fa51fde8103bd45aad4f6c3f23b093aba955c403/index.js"}
     ]}

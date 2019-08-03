@@ -26,7 +26,7 @@ npm run integration
 ### Usage
 
 To use the library: 
-```   
+``` javascript
 var jsonConverter = require('json-fs-converter')
 const path = require('path');
 const fs = require('fs');
@@ -50,7 +50,34 @@ mm.run((err) => {
   console.log(fileContent.toString())
   mock.restore();
 })
+```
+This code will create the following file structure:  
+```bash
+/fakeTmp/single-test (directory)
+/fakeTmp/single-test/test.txt (file)
+```
+The library recursively create directories and files.
+The module accepts a single object containing:  
+- root: the root directory where first directory will be saved 
+- name: the name of the directory that will be created; in this directory files will be saved  
+- List of files: an array containing elements that depends on the type of driver
 
+The library detect the type of driver to use depending on the elements inside the structure array. Available drivers:  
+- httpDriver : Download files from webserver; the structure of an element is : 
+```javascript
+{
+  "type": "http",
+  "name" : <name_to_save>, // the name of the new created file
+  "url": <url_to_download> // the url where the file will be downloaded
+}
+```
+- fsDriver : Download files from filesystem; the structure of an element is : 
+```javascript
+{
+  "type": "fs", //Filesystem driver
+  "name" : <name_to_save>, // the name of the new created file
+  "filepath": <filepath> // the path where the file will be saved
+}
 ```
 
  
