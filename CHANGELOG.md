@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 
+## [1.2.0] - 2019-08-03
+### Added
+- Creation of fs driver  
+
+    
 ## [1.0.0] - 2019-07-31
 ### Added
 - Initialization of the project  
