@@ -4,7 +4,7 @@
   "description": "This module allows to convert json structures in file system, by taking resources from different resources",
   "main": "index.js",
   "scripts": {
-    "test": "riteway tests/unit/**-test.js",
+    "test": "riteway tests/unit/**-test.js | tap-color",
     "integration": "tape tests/integration.js | tap-color"
   },
   "repository": {

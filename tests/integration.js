@@ -1,6 +1,7 @@
 const tape = require('tape');
 const mainModule = require('../lib/main.js');
 const fakeTmp = '/fakeTmp';
+const fakeTmp2 = '/fakeTmp2';
 const path = require('path');
 const fs = require('fs');
 const mock = require('mock-fs');
@@ -51,7 +52,8 @@ function checksum(str, algorithm, encoding) {
 
 
 mock({
-	'/fakeTmp' : {}
+	'/fakeTmp' : {},
+	'/fakeTmp2' : {}
 })
 
 const md5Readme = "ad971c2a37865018024e06b173170b5c";
@@ -155,6 +157,28 @@ tape('create 2 files and a directory with a file inside dir with fs driver', (t)
 		t.equal(imagemd, checksum(imageContent));
 	})
 });
+
+tape('create 2 files and a directory with a file inside dir with content driver', (t) => {
+	t.plan(6);
+	 const fsFile = '{"root" : "/fakeTmp2", "name" : "testfs", "structure" : [{ "type": "content", "name" : "test.txt", "content": "one"}, {"type": "content", "name" : "testimage.png", "content": "two" }]}'
+	const mm = mainModule(fsFile);
+	mm.run((err) => {
+		t.equal(err, null);
+		let exists = fs.existsSync(path.join(fakeTmp2, 'testfs'));
+		t.equal(exists, true);
+		const testFile = path.join(fakeTmp2, 'testfs', "test.txt")
+		const imageFile = path.join(fakeTmp2, 'testfs', "testimage.png")
+		exists = fs.existsSync(testFile);
+		t.equal(exists, true);
+		const testContent = fs.readFileSync(testFile);
+		t.equal(testContent.toString(), "one");
+		exists = fs.existsSync(imageFile);
+		t.equal(exists, true);
+		const imageContent = fs.readFileSync(imageFile);
+		t.equal(imageContent.toString(), "two");
+	})
+});
+
 
 tape.onFinish(() => {
 	mock.restore();

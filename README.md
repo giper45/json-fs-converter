@@ -76,7 +76,15 @@ The library detect the type of driver to use depending on the elements inside th
 {
   "type": "fs", //Filesystem driver
   "name" : <name_to_save>, // the name of the new created file
-  "filepath": <filepath> // the path where the file will be saved
+  "filepath": <filepath> // the path where the file will be taken 
+}
+```
+- contentDriver : Write files by content; the structure of an element is : 
+```javascript
+{
+  "type": "content", //Content driver
+  "name" : <name_to_save>, // the name of the new created file
+  "content": <content> // the content that will be saved in fs
 }
 ```
 
