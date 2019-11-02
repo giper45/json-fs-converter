@@ -72,7 +72,7 @@ tape('create directory', (t) => {
 	});
 });
 
-tape('create file inside dir with http driver', (t) => {
+tape('[HTTP_DRIVER] create file inside dir with http driver', (t) => {
 	t.plan(3);
 	const singleFile = '{"root" : "/fakeTmp", "name" : "single-test", "structure" : [{"type": "http", "name" : "test.txt", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/Readme.md"}]}'
 	const mm = mainModule(singleFile);
@@ -84,8 +84,16 @@ tape('create file inside dir with http driver', (t) => {
 		t.equal(exists, true);
 	})
 })
-
-tape('create 2 files and a directory with a file inside dir with http driver', (t) => {
+tape('[HTTP_DRIVER] Should give not found error', (t) => {
+	t.plan(1);
+	const singleFile = '{"root" : "/fakeTmp", "name" : "single-test-notfound", "structure" : [{"type": "http", "name" : "test_not_found.txt", "url": "https://github.com/giper45/DockerSecurityPlayground/notfound"}]}'
+	const mm = mainModule(singleFile);
+	mm.run((err) => {
+    console.log(err);
+		t.notEqual(err, null);
+  })
+})
+tape('[HTTP_DRIVER] create 2 files and a directory with a file inside dir with http driver', (t) => {
 	t.plan(8);
 	// const doubleFile = '{"root" : "/fakeTmp", "name" : "double-test", "structure" : [{ "type": "http", "name" : "License.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/License.md"}, {"type": "http", "name" : "Readme.md", "url": "https://raw.githubusercontent.com/giper45/DockerSecurityPlayground/master/Readme.md" }]}'
 	const mm = mainModule(JSON.stringify(doubleFile));
