@@ -1,6 +1,6 @@
 {
   "name": "json-fs-converter",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "This module allows to convert json structures in file system, by taking resources from different resources",
   "main": "index.js",
   "scripts": {
